@@ -14,6 +14,8 @@ class PerpetualAstonishment( object ):
 
     def load_corpora( self ):
 
+        print "Loading corpora..."
+
         pth = os.path.realpath( os.path.dirname(__file__) )
         nltk.data.path.append( os.path.join( pth, "nltk_data" ) )
         from nltk.corpus import wordnet as wn
@@ -21,10 +23,10 @@ class PerpetualAstonishment( object ):
         self._adjectives = list(wn.all_synsets('a'))
         self._nouns = list(wn.all_synsets('n'))
 
-        with open( "firstnames.txt" ) as fh:
+        with open( os.path.join( pth, "firstnames.txt") ) as fh:
             self._firstnames = fh.readlines()
 
-        with open( "surnames.txt" ) as fh:
+        with open( os.path.join( pth, "surnames.txt") ) as fh:
             self._surnames = fh.readlines()
 
 

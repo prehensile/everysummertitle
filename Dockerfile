@@ -20,5 +20,7 @@ ADD ./app /app
 # install ntlk corpora
 RUN python -m nltk.downloader wordnet -d /app/nltk_data
 
+EXPOSE 8080
+
 # entry point
 CMD "/app/main.py"
